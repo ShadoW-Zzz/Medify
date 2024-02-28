@@ -1,0 +1,16 @@
+{% extends "online_medic/layout.html" %}
+
+{% block body %}    
+    <h2>{{ user.first_name }} {{user.last_name}}</h2>
+    {% if elements %}
+    <ul>
+        {% for name,price in elements %}
+            <li>{{ forloop.counter }} {{ name }} price: {{ price }}</li>
+        {% endfor %}
+    </ul>
+    {% else %}  
+        <p>No prescription available</p>
+    {% endif %}
+    <h3>Total Amount to be Paid: {{total}} </h3>
+    <button type="button" class="btn btn-primary">Check Out</button>
+{% endblock %}

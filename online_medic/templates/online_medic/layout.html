@@ -1,0 +1,42 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>{% block title %}MEDIFY{% endblock %}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+        <link href="{% static 'online_medic/styles.css' %}" rel="stylesheet">
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.4.3/dist/js/bootstrap.bundle.min.js"></script>
+        <script src="{% static 'online_medic/script.js' %}"></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white" style="filter: brightness(90%) saturate(0%);">
+            <a class="navbar-brand" href="#">
+                <img src="https://img.freepik.com/free-vector/hospital-logo-design-vector-medical-cross_53876-136743.jpg" width="30" height="30" alt="">
+            </a>
+            <h1 style="padding: 7px;">MEDIFY</h1>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNavDropdown">
+              <ul class="navbar-nav">
+                <li class="nav-item active">
+                  <a class="nav-link text-gray" href="{% url 'index' %}"> Prescribe <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-gray" href="">Log Out</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link text-gray" href="">Register</a>
+                </li>
+              </ul>
+            </div>
+            <div class="form-inline my-2 my-lg-0">
+                Dr, <strong>{{ doc.first_name }} {{doc.last_name}}</strong>.
+            </div>
+        </nav>
+        <hr>
+        {% block body %}
+        {% endblock %}
+    </body>
+</html>

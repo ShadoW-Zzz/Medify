@@ -1,0 +1,62 @@
+{% extends "online_medic/layout.html" %}
+
+{% block body %}
+<div class="container">
+    <div class="patient-info">
+        <div class="info-left">
+            <h2>Patient Details</h2>
+            <ul>
+                <li>Patient Name: {{ user.first_name }} {{ user.last_name }}</li>
+                <li>Patient ID: {{ user.id }}</li>
+                <li>Contact Number: {{ user.phone_number }}</li>
+            </ul>
+        </div>
+        <div class="info-right">
+            <img src="{{ user.image }}" alt="User Photo" class="user-photo">
+        </div>
+    </div>
+
+    <form class="prescription-form" action="{% url 'pay' %}" method="post">
+        {% csrf_token %}
+        <fieldset>
+            <legend>Prescription Details</legend>
+            <div class = "all">
+                <div class="individual">
+                    <div class="prescription-input"> 
+                        <label>Medicine Name:</label><br>
+                        <select class="prescription-input" aria-label="Default select example" name="medicine_id">
+                            <option selected>Choose a Medicine</option>
+                            {% for med in meds %}
+                                <option value="{{med.id}}">{{med.name}}</option>
+                            {% endfor %}
+                        </select>
+                    </div>
+                    
+                    <div class="prescription-input dosage-timing">
+                        <label>Dosage Timing:</label>
+                        <div class="timing-options">
+                            <label><input type="radio" name="consumption" value="morning" checked> Morning</label>
+                            <label><input type="radio" name="consumption" value="afternoon" > Afternoon</label>
+                            <label><input type="radio" name="consumption" value="night"> Night</label>
+                        </div>
+                    </div>
+
+                    <div class="prescription-input">
+                        <label for="af">Before or After Meals:</label><br>
+                        <select id="af" name="time" required>
+                            <option value="before">Before</option>
+                            <option value="after">After</option>
+                        </select>
+                    </div>
+                    <hr>
+                </div>
+            </div>
+        </fieldset>
+        <div> <input type="hidden" name="cust_Id" value="{{user.id}}"></div>
+        <div class="button-container">
+            <button type="button" class="add-button">Add Medicine</button>
+            <button type="submit" class="submit-button">Submit Prescription</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

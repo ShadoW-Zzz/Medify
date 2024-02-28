@@ -1,0 +1,14 @@
+{% extends "online_medic/layout.html" %}
+
+{% block body %}
+    <form action="{% url 'index' %}" method="post">
+        {% csrf_token %}
+        <select class="form-select" aria-label="Default select example" name="user_id">
+            <option selected>Select a patient</option>
+            {% for user in users %}
+                <option value="{{user.id}}">{{user.username}}</option>
+            {% endfor %}
+        </select>
+        <button class="btn btn-success" type="submit">Search Patient</button>
+    </form>
+{% endblock %}

@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+header,
+main,
+footer {
+    flex: 1 0 auto;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+/* Heading */
+h1 {
+    color: rgb(219, 47, 5); /* Main heading color */
+    font-size: 45px;
+    text-align: center; /* Center the heading */
+}
+
+/* Patient information section */
+.patient-info {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.info-left {
+    flex: 1;
+}
+
+.info-left h2 {
+    margin-bottom: 10px;
+    font-size: 20px; /* Adjusted heading size */
+}
+
+.info-left ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.lion {
+    color: rgb(54, 199, 35); /* Adjusted label color */
+    margin-bottom: 10px; /* Consistent spacing */
+}
+
+/* Removed duplicated flex properties from `.fire` */
+.fire {
+    margin-bottom: 10px; /* Consistent spacing */
+}
+
+.fire div {
+    margin-bottom: 10px;
+}
+
+/* Button styles */
+.button-container {
+    text-align: right; /* Align buttons to the right */
+    margin-top: 20px; /* Add margin at the top for spacing */
+}
+
+.add-button,
+.submit-button {
+    background-color: #04AA6D; /* Green */
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px; /* Adjusted padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px; /* Add margin between buttons */
+    cursor: pointer;
+}
+
+.elephant {
+    background-color: #04AA6D; /* Green */
+    border-radius: 5px;
+    color: white;
+    padding: 10px 20px; /* Adjusted padding */
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-right: 10px; /* Add margin between buttons */
+    cursor: pointer;
+}
+
+.user-photo {
+    width: 4.5cm; /* Adjust the width as needed */
+    height: 6cm; /* Adjust the height as needed */
+    object-fit: cover;
+    object-position: center;
+    border: 1px solid #000;
+}
